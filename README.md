@@ -6,8 +6,13 @@ Landing page para el seminario híbrido del 7 de julio en Universidad Nebrija.
 
 - `index.html`: landing lista para publicar.
 - `outputs/google-sheets-apps-script.js`: receptor de inscripciones para Google Sheets.
-- `outputs/gestion-inscripciones-segura.md`: flujo recomendado para gestionar datos sin exponer CSV público.
+- `outputs/gestion-inscripciones-segura.md`: flujo para gestionar datos sin exponer CSV público.
+- `tools/build_registration_reporting.mjs`: generador de la plantilla privada de reporting.
 
 ## Inscripciones
 
-La landing no expone ni descarga datos de inscritos. Antes de publicar, hay que crear una Google Sheet privada, desplegar el Apps Script y pegar la URL `/exec` en `REGISTRATION_ENDPOINT`.
+La landing no expone ni descarga datos de inscritos. La Google Sheet privada creada para el reporting es:
+
+https://docs.google.com/spreadsheets/d/1MEAbTTBS0oiubJloIPZawpwVAHjc4GgQfG4O-G4KfjE/edit
+
+Para activar la captura real hay que desplegar el Apps Script como aplicación web y pegar la URL `/exec` en `REGISTRATION_ENDPOINT`.
