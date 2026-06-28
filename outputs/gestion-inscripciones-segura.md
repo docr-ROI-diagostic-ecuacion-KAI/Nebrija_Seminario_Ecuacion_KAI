@@ -1,27 +1,42 @@
-# Gestión segura de inscripciones
+# Gestion segura de inscripciones
 
-La landing pública no debe incluir descarga CSV ni lectura del histórico de inscritos.
+Ya esta creada la Google Sheet privada:
 
-## Flujo recomendado
+https://docs.google.com/spreadsheets/d/1MEAbTTBS0oiubJloIPZawpwVAHjc4GgQfG4O-G4KfjE/edit
 
-1. La landing envía cada inscripción a un endpoint privado de Google Apps Script.
-2. El Apps Script solo permite escritura en una Google Sheet privada.
-3. La Google Sheet queda compartida únicamente con Jorge y la coordinadora del evento.
-4. El CSV se descarga desde Google Sheets: `Archivo > Descargar > Valores separados por comas (.csv)`.
+## Que contiene
 
-## Por qué así
+- `Inscripciones`: historico privado de altas del formulario.
+- `Reporting`: resumen automatico por total, modalidad y perfil.
+- `Configuracion`: datos del evento, textos legales y criterio de conservacion.
 
-- La web pública no expone ningún histórico.
-- Ningún visitante puede descargar datos de otros inscritos.
-- El endpoint solo añade filas; no devuelve registros.
-- La coordinadora trabaja desde Google Sheets, que ya tiene control de permisos e histórico.
+## Activar la captura desde la landing
 
-## Pendiente antes de publicar
+1. Abre la hoja privada.
+2. En Google Sheets, ve a `Extensiones > Apps Script`.
+3. Borra lo que aparezca y pega el contenido de `outputs/google-sheets-apps-script.js`.
+4. Pulsa `Implementar > Nueva implementacion`.
+5. Tipo: `Aplicacion web`.
+6. Ejecutar como: `Yo`.
+7. Acceso: `Cualquier usuario`.
+8. Copia la URL que termina en `/exec`.
+9. Pegala en `index.html`, constante `REGISTRATION_ENDPOINT`.
 
-1. Crear la Google Sheet privada.
-2. Pegar el código de `google-sheets-apps-script.js` en Apps Script.
-3. Desplegar como aplicación web.
-4. Copiar la URL `/exec`.
-5. Pegar esa URL en `index.html`, constante `REGISTRATION_ENDPOINT`.
+Mientras `REGISTRATION_ENDPOINT` este vacio, la landing no guarda datos.
 
-Mientras `REGISTRATION_ENDPOINT` esté vacío, el formulario no recoge datos.
+## Como exportar CSV para la coordinadora
+
+Desde Google Sheets:
+
+`Archivo > Descargar > Valores separados por comas (.csv)`
+
+Hazlo desde la pestana `Inscripciones`.
+
+## Seguridad
+
+- La landing publica no tiene boton de descarga CSV.
+- La web no lee el historico de inscritos.
+- El endpoint solo anade filas a la hoja privada.
+- Los datos se usan exclusivamente para confirmar la inscripcion y facilitar el acceso al evento.
+- Esta inscripcion no autoriza comunicaciones comerciales posteriores.
+- Cuando deje de ser necesario para coordinar el evento, se debe eliminar el historico.
