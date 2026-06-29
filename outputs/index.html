@@ -77,12 +77,11 @@
     }
 
     .docroi-brand-nebrija {
-      width: 108px;
-      height: 108px;
-      object-fit: cover;
+      width: 168px;
+      height: auto;
+      object-fit: contain;
       align-self: flex-start;
       margin-top: 10px;
-      background: var(--docroi-red);
     }
 
     .docroi-menu {
@@ -441,21 +440,30 @@
       box-shadow: 0 28px 70px rgba(0,0,0,.48);
     }
 
+    .docroi-thankyou-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
     .docroi-thankyou-frame img {
       display: block;
       width: 100%;
       height: auto;
     }
 
+    .docroi-thankyou-link:focus-visible {
+      outline: 2px solid #4b91ff;
+      outline-offset: 4px;
+    }
+
     .docroi-gift-hotspot {
       position: absolute;
-      left: 7%;
-      top: 73.2%;
-      width: 33%;
-      height: 5.1%;
+      inset: 0;
       border-radius: 10px;
       text-indent: -9999px;
       overflow: hidden;
+      pointer-events: none;
     }
 
     .docroi-print-button {
@@ -753,7 +761,7 @@
     }
 
     .docroi-nebrija-strip img {
-      width: min(46vw, 150px);
+      width: min(54vw, 260px);
       height: auto;
       object-fit: contain;
       display: inline-block;
@@ -818,7 +826,7 @@
       .docroi-brand { gap: 10px; }
       .docroi-nav { min-height: 82px; }
       .docroi-menu { top: 82px; }
-      .docroi-brand-nebrija { width: 82px; height: 82px; }
+      .docroi-brand-nebrija { width: 126px; height: auto; }
       .docroi-hero { background-position: 70% 20%; }
       .docroi-linkbar { align-items: flex-start; flex-direction: column; }
     }
@@ -827,17 +835,17 @@
 <body>
   <div class="docroi-shell">
     <header class="docroi-header">
-      <nav class="docroi-nav" aria-label="Navegacion principal">
+      <nav class="docroi-nav" aria-label="Navegación principal">
         <a class="docroi-brand" href="#inicio" aria-label="Inicio">
-          <img class="docroi-brand-nebrija" src="assets/nebrija-business-tech-logo.png" alt="Nebrija Business & Technology School">
+          <img class="docroi-brand-nebrija" src="https://docroi.marketing/wp-content/uploads/2026/06/1700582564060.jpeg" alt="Nebrija Business & Technology School">
         </a>
-        <button class="docroi-burger" type="button" aria-expanded="false" aria-controls="docroi-menu" aria-label="Abrir menu">
+        <button class="docroi-burger" type="button" aria-expanded="false" aria-controls="docroi-menu" aria-label="Abrir menú">
           <span aria-hidden="true"></span>
         </button>
         <div class="docroi-menu" id="docroi-menu">
-          <a href="#inscripcion">Inscripcion</a>
-          <a href="#formula">Formula KAI</a>
-          <a href="#presentacion">Presentacion</a>
+          <a href="#inscripcion">Inscripción</a>
+          <a href="#formula">Fórmula KAI</a>
+          <a href="#presentacion">Presentación</a>
           <a href="#cierre">Reserva plaza</a>
         </div>
       </nav>
@@ -853,21 +861,21 @@
               <span class="docroi-pill">KAI ROI</span>
             </div>
             <p class="docroi-presenter">Expone y presenta <a href="https://docroi.marketing/ph-d-jorge-lucio/" target="_blank" rel="noopener">Ph. D. Jorge Lucio</a></p>
-            <h1 class="docroi-title">Reserva tu plaza y descubre cÃ³mo convertir datos, IA y decisiones en <strong>ROI medible</strong>.</h1>
-            <p class="docroi-lead">Una sesiÃ³n ejecutiva para presentar la EcuaciÃ³n KAIÂ·ROI v1 aplicada a Customer Equity, monetizaciÃ³n del dato y decisiones de negocio.</p>
-            <p class="docroi-lead">Veremos cÃ³mo pasar del dato disponible al valor medible: igual que en el caso aplicado del club de fÃºtbol, donde los datos de patrocinio, estadio, ecommerce, scouting y activos digitales permiten entender quÃ© palancas generan crecimiento, retorno y Customer Equity.</p>
+            <h1 class="docroi-title">Reserva tu plaza y descubre cómo convertir datos, IA y decisiones en <strong>ROI medible</strong>.</h1>
+            <p class="docroi-lead">Una sesión ejecutiva para presentar la Ecuación KAI·ROI v1 aplicada a Customer Equity, monetización del dato y decisiones de negocio.</p>
+            <p class="docroi-lead">Veremos cómo pasar del dato disponible al valor medible: igual que en el caso aplicado del club de fútbol, donde los datos de patrocinio, estadio, ecommerce, scouting y activos digitales permiten entender qué palancas generan crecimiento, retorno y Customer Equity.</p>
             <div class="docroi-meta">
               <div>
                 <span class="docroi-label">Modalidad</span>
-                <span class="docroi-value">Evento hÃ­brido: presencial u online</span>
+                <span class="docroi-value">Evento híbrido: presencial u online</span>
               </div>
               <div>
                 <span class="docroi-label">Horario</span>
-                <span class="docroi-value">7 de julio Â· 10:00 a 11:00 h</span>
+                <span class="docroi-value">7 de julio · 10:00 a 11:00 h</span>
               </div>
               <div>
                 <span class="docroi-label">Lugar</span>
-                <span class="docroi-value"><a href="https://maps.app.goo.gl/LVQAmy859XukjTot8" target="_blank" rel="noopener">Universidad Nebrija Â· Ver en Google Maps</a></span>
+                <span class="docroi-value"><a href="https://maps.app.goo.gl/LVQAmy859XukjTot8" target="_blank" rel="noopener">Universidad Nebrija · Ver en Google Maps</a></span>
               </div>
               <div>
                 <span class="docroi-label">Enfoque</span>
@@ -875,15 +883,15 @@
               </div>
               <div>
                 <span class="docroi-label">Modelo</span>
-                <span class="docroi-value">EcuaciÃ³n KAIÂ·ROI v1</span>
+                <span class="docroi-value">Ecuación KAI·ROI v1</span>
               </div>
             </div>
           </div>
 
           <form class="docroi-form" id="inscripcion" action="#" method="post">
-            <h2>InscrÃ­bete al seminario</h2>
-            <p>Reserva tu plaza para asistir a la presentaciÃ³n de la EcuaciÃ³n KAIÂ·ROI v1, una sesiÃ³n ejecutiva para entender cÃ³mo convertir datos, inteligencia artificial y decisiones de negocio en Customer Equity y ROI medible.</p>
-            <p>PodrÃ¡s asistir de forma presencial en Universidad Nebrija o seguir la sesiÃ³n online. Tras completar el formulario, recibirÃ¡s la confirmaciÃ³n de inscripciÃ³n y la informaciÃ³n de acceso correspondiente.</p>
+            <h2>Inscríbete al seminario</h2>
+            <p>Reserva tu plaza para asistir a la presentación de la Ecuación KAI·ROI v1, una sesión ejecutiva para entender cómo convertir datos, inteligencia artificial y decisiones de negocio en Customer Equity y ROI medible.</p>
+            <p>Podrás asistir de forma presencial en Universidad Nebrija o seguir la sesión online. Tras completar el formulario, recibirás la confirmación de inscripción y la información de acceso correspondiente.</p>
             <div class="docroi-fieldset">
               <input class="docroi-input" type="text" name="nombre" placeholder="Nombre y apellidos" autocomplete="name" required>
               <input class="docroi-input" type="email" name="email" placeholder="Email profesional" autocomplete="email" required>
@@ -910,21 +918,23 @@
               </div>
               <label class="docroi-check">
                 <input type="checkbox" name="rgpd" required>
-                <span>He leÃ­do y acepto que mis datos se traten exclusivamente para gestionar mi inscripciÃ³n al evento y enviarme los correos necesarios para confirmarla y facilitar el acceso, conforme al <a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noopener">aviso legal</a> y la polÃ­tica de privacidad.</span>
+                <span>He leído y acepto que mis datos se traten exclusivamente para gestionar mi inscripción al evento y enviarme los correos necesarios para confirmarla y facilitar el acceso, conforme al <a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noopener">aviso legal</a> y la política de privacidad.</span>
               </label>
               <label class="docroi-check">
                 <input type="checkbox" name="sin-comercial" required>
-                <span>Entiendo que esta inscripciÃ³n no supone autorizaciÃ³n para recibir comunicaciones comerciales, newsletters ni acciones promocionales posteriores.</span>
+                <span>Entiendo que esta inscripción no supone autorización para recibir comunicaciones comerciales, newsletters ni acciones promocionales posteriores.</span>
               </label>
               <button class="docroi-button" type="submit">Inscribirme al seminario</button>
-              <div class="docroi-microcopy">SesiÃ³n hÃ­brida Â· Universidad Nebrija Â· 7 de julio Â· 10:00 a 11:00 h Â· KAIÂ·ROI v1</div>
+              <div class="docroi-microcopy">Sesión híbrida · Universidad Nebrija · 7 de julio · 10:00 a 11:00 h · KAI·ROI v1</div>
               <div class="docroi-form-status" id="form-status" role="status" aria-live="polite"></div>
             </div>
           </form>
           <div class="docroi-thankyou" id="thank-you-panel" aria-live="polite">
             <div class="docroi-thankyou-frame">
-              <img id="thank-you-image" src="assets/thank-you-page.png" alt="Gracias por tu inscripcion al Seminario KAI ROI">
-              <a class="docroi-gift-hotspot" href="https://el-botiquin-del-doc-roi.vercel.app/" target="_blank" rel="noopener">Recoger regalo en el Botiquin Doc ROI</a>
+              <a class="docroi-thankyou-link" href="https://el-botiquin-del-doc-roi.vercel.app/" target="_blank" rel="noopener" aria-label="Recoger regalo en el Botiquin Doc ROI">
+                <img id="thank-you-image" src="assets/thank-you-page.png" alt="Gracias por tu inscripción al Seminario KAI ROI">
+                <span class="docroi-gift-hotspot" aria-hidden="true">Recoger regalo en el Botiquin Doc ROI</span>
+              </a>
             </div>
             <button class="docroi-button docroi-print-button" type="button" id="print-thank-you">Imprimir</button>
           </div>
@@ -934,59 +944,59 @@
       <section class="docroi-section docroi-band formula-band" id="formula">
         <div class="docroi-inner docroi-formula-layout">
           <div>
-            <p class="docroi-eyebrow">EcuaciÃ³n KAIÂ·ROI v1</p>
+            <p class="docroi-eyebrow">Ecuación KAI·ROI v1</p>
             <h2 class="docroi-heading">Del dato operativo al Customer Equity medible.</h2>
-            <p class="docroi-copy">Una fÃ³rmula para entender cuÃ¡ndo los datos, la inteligencia artificial y las decisiones de negocio crean valor econÃ³mico real.</p>
-            <p class="docroi-copy">Durante la sesiÃ³n veremos cÃ³mo la EcuaciÃ³n KAIÂ·ROI v1 conecta decisiÃ³n, objetivos, inteligencia, digitalizaciÃ³n, orientaciÃ³n algorÃ­tmica al cliente, productividad y salud de cartera con ROI y Customer Equity.</p>
+            <p class="docroi-copy">Una fórmula para entender cuándo los datos, la inteligencia artificial y las decisiones de negocio crean valor económico real.</p>
+            <p class="docroi-copy">Durante la sesión veremos cómo la Ecuación KAI·ROI v1 conecta decisión, objetivos, inteligencia, digitalización, orientación algorítmica al cliente, productividad y salud de cartera con ROI y Customer Equity.</p>
           </div>
-          <div class="docroi-formula" aria-label="Formula KAI ROI">
-            <p class="docroi-formula-title">NÃºcleo formal</p>
+          <div class="docroi-formula" aria-label="Fórmula KAI ROI">
+            <p class="docroi-formula-title">Núcleo formal</p>
             <div class="docroi-equation">
-              <code>KAI_i* = Ï†_i Â· u_i Â· f_i Â· Ïˆ_i Â· SPO_i Â· P_i Â· Î“_g(i),t</code>
+              <code>KAI_i* = φ_i · u_i · f_i · ψ_i · SPO_i · P_i · Γ_g(i),t</code>
             </div>
-            <p class="docroi-copy">La fÃ³rmula completa se desarrolla en el white paper y se podrÃ¡ explorar de forma aplicada en el simulador.</p>
+            <p class="docroi-copy">La fórmula completa se desarrolla en el white paper y se podrá explorar de forma aplicada en el simulador.</p>
           </div>
-          <div class="docroi-agenda" aria-label="QuÃ© presentaremos">
+          <div class="docroi-agenda" aria-label="Qué presentaremos">
             <div class="docroi-agenda-item">
               <div>
-                <h3>El nÃºcleo formal de la fÃ³rmula</h3>
-                <p>La arquitectura oficial de KAIÂ·ROI v1 y su papel como modelo para ordenar la monetizaciÃ³n del dato.</p>
+                <h3>El núcleo formal de la fórmula</h3>
+                <p>La arquitectura oficial de KAI·ROI v1 y su papel como modelo para ordenar la monetización del dato.</p>
               </div>
             </div>
             <div class="docroi-agenda-item">
               <div>
-                <h3>La capa operativa de diagnÃ³stico</h3>
-                <p>CÃ³mo traducir la fÃ³rmula en preguntas, indicadores y seÃ±ales que puede entender un comitÃ© de direcciÃ³n.</p>
+                <h3>La capa operativa de diagnóstico</h3>
+                <p>Cómo traducir la fórmula en preguntas, indicadores y señales que puede entender un comité de dirección.</p>
               </div>
             </div>
             <div class="docroi-agenda-item">
               <div>
-                <h3>La aplicaciÃ³n a negocio</h3>
-                <p>CÃ³mo pasar de datos dispersos a palancas de valor: clientes, ingresos, costes, productividad, LTV, churn y ROI.</p>
+                <h3>La aplicación a negocio</h3>
+                <p>Cómo pasar de datos dispersos a palancas de valor: clientes, ingresos, costes, productividad, LTV, churn y ROI.</p>
               </div>
             </div>
             <div class="docroi-agenda-item">
               <div>
                 <h3>El caso aplicado</h3>
-                <p>Un ejemplo inspirado en modelos de negocio como el fÃºtbol: patrocinio, estadio, ecommerce, scouting, activos digitales y activaciÃ³n de cliente.</p>
+                <p>Un ejemplo inspirado en modelos de negocio como el fútbol: patrocinio, estadio, ecommerce, scouting, activos digitales y activación de cliente.</p>
               </div>
             </div>
             <div class="docroi-agenda-item">
               <div>
-                <h3>El simulador KAIÂ·ROI</h3>
-                <p>Una primera aproximaciÃ³n para explorar cÃ³mo una organizaciÃ³n puede medir su capacidad de convertir dato e IA en valor econÃ³mico.</p>
+                <h3>El simulador KAI·ROI</h3>
+                <p>Una primera aproximación para explorar cómo una organización puede medir su capacidad de convertir dato e IA en valor económico.</p>
               </div>
             </div>
           </div>
           <div class="docroi-actions">
-            <a class="docroi-linkbar" href="https://docroi.marketing/wp-content/uploads/2026/05/KAIÂ·ROI_Equation.pdf" target="_blank" rel="noopener" aria-label="Abrir white paper de la formula KAI ROI">
-              White paper KAIÂ·ROI <small>Consultar la base conceptual de la fÃ³rmula</small> <span aria-hidden="true">â†’</span>
+            <a class="docroi-linkbar" href="https://docroi.marketing/wp-content/uploads/2026/05/KAI·ROI_Equation.pdf" target="_blank" rel="noopener" aria-label="Abrir white paper de la fórmula KAI ROI">
+              White paper KAI·ROI <small>Consultar la base conceptual de la fórmula</small> <span aria-hidden="true">→</span>
             </a>
             <a class="docroi-linkbar" href="https://docroi-kai-diagnosis.vercel.app/diagnosis" target="_blank" rel="noopener" aria-label="Abrir simulador KAI ROI">
-              Simulador KAIÂ·ROI <small>Explorar la aplicaciÃ³n prÃ¡ctica del modelo</small> <span aria-hidden="true">â†’</span>
+              Simulador KAI·ROI <small>Explorar la aplicación práctica del modelo</small> <span aria-hidden="true">→</span>
             </a>
             <a class="docroi-linkbar" href="#inscripcion" aria-label="Inscribirme al seminario">
-              Inscribirme al seminario <small>Asistir a la presentaciÃ³n del 7 de julio</small> <span aria-hidden="true">â†’</span>
+              Inscribirme al seminario <small>Asistir a la presentación del 7 de julio</small> <span aria-hidden="true">→</span>
             </a>
           </div>
         </div>
@@ -994,24 +1004,24 @@
 
       <section class="docroi-section docroi-football" id="presentacion">
         <div class="docroi-inner">
-          <p class="docroi-eyebrow">PresentaciÃ³n descargable</p>
-          <h2 class="docroi-heading">KAIÂ·ROI aplicado al modelo de negocio del fÃºtbol espaÃ±ol.</h2>
-          <p class="docroi-copy">Una lectura ejecutiva para entender cÃ³mo los datos de un club pueden convertirse en valor econÃ³mico medible: patrocinio, estadio, ecommerce, activos digitales, inteligencia comercial, productividad de recursos, LTV, churn y Customer Equity.</p>
-          <p class="docroi-copy">En la sesiÃ³n veremos cÃ³mo la EcuaciÃ³n KAIÂ·ROI v1 ayuda a ordenar esas palancas y a conectar dato, IA y decisiÃ³n con ROI.</p>
-          <a class="docroi-download" href="https://docroi.marketing/wp-content/uploads/2026/06/2026.06.07.Ecuacion-KAIÂ·ROI-Monetizacion-del-dato-y-ROI-en-la-era-de-la-IA-1.pdf" target="_blank" rel="noopener">Descargar presentaciÃ³n</a>
-          <p class="docroi-note">Marco construido desde una experiencia de mÃ¡s de 8 aÃ±os trabajando en monetizaciÃ³n, digitalizaciÃ³n y modelos de dato aplicados a clubes de fÃºtbol.</p>
+          <p class="docroi-eyebrow">Presentación descargable</p>
+          <h2 class="docroi-heading">KAI·ROI aplicado al modelo de negocio del fútbol español.</h2>
+          <p class="docroi-copy">Una lectura ejecutiva para entender cómo los datos de un club pueden convertirse en valor económico medible: patrocinio, estadio, ecommerce, activos digitales, inteligencia comercial, productividad de recursos, LTV, churn y Customer Equity.</p>
+          <p class="docroi-copy">En la sesión veremos cómo la Ecuación KAI·ROI v1 ayuda a ordenar esas palancas y a conectar dato, IA y decisión con ROI.</p>
+          <a class="docroi-download" href="https://docroi.marketing/wp-content/uploads/2026/06/2026.06.07.Ecuacion-KAI·ROI-Monetizacion-del-dato-y-ROI-en-la-era-de-la-IA-1.pdf" target="_blank" rel="noopener">Descargar presentación</a>
+          <p class="docroi-note">Marco construido desde una experiencia de más de 8 años trabajando en monetización, digitalización y modelos de dato aplicados a clubes de fútbol.</p>
         </div>
       </section>
 
       <section class="docroi-section docroi-cta" id="cierre">
         <div class="docroi-inner">
-          <h2>InscrÃ­bete y reserva tu plaza.</h2>
-          <p>El 7 de julio llevamos la EcuaciÃ³n KAIÂ·ROI v1 a la Universidad Nebrija en una sesiÃ³n hÃ­brida, prÃ¡ctica y ejecutiva para explicar, medir y activar valor econÃ³mico desde el dato, la IA y la decisiÃ³n de negocio.</p>
+          <h2>Inscríbete y reserva tu plaza.</h2>
+          <p>El 7 de julio llevamos la Ecuación KAI·ROI v1 a la Universidad Nebrija en una sesión híbrida, práctica y ejecutiva para explicar, medir y activar valor económico desde el dato, la IA y la decisión de negocio.</p>
           <a class="docroi-button" href="#inscripcion">Ir al formulario</a>
         </div>
       </section>
       <section class="docroi-nebrija-strip" aria-label="Universidad Nebrija">
-        <img src="assets/nebrija-business-tech-logo.png" alt="Nebrija Business & Technology School">
+        <img src="https://docroi.marketing/wp-content/uploads/2026/06/1700582564060.jpeg" alt="Nebrija Business & Technology School">
       </section>
     </main>
 
@@ -1021,7 +1031,7 @@
           <img src="https://docroi.marketing/wp-content/uploads/2026/05/Logo_Negro_DoC_ROI.jpg" alt="Doc ROI" style="height:72px;width:auto;display:block;">
         </a>
         <div style="display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:14px;color:#D1D5DB;font-size:14px;line-height:1.6;margin-bottom:24px;">
-          <a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noopener" style="color:#D1D5DB;text-decoration:none;">PolÃ­tica de privacidad</a>
+          <a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noopener" style="color:#D1D5DB;text-decoration:none;">Política de privacidad</a>
           <span style="opacity:.4;">|</span>
           <a href="https://docroi.marketing/aviso-legal/" target="_blank" rel="noopener" style="color:#D1D5DB;text-decoration:none;">Aviso legal</a>
           <span style="opacity:.4;">|</span>
@@ -1030,7 +1040,7 @@
         <div style="font-size:15px;line-height:1.9;color:#C0C7D1;font-weight:400;letter-spacing:.01em;">
           <span style="display:block;">La propiedad intelectual del ecosistema Doc ROI pertenece al</span>
           <a href="https://docroi.marketing/ph-d-jorge-lucio/" target="_blank" rel="noopener noreferrer" style="text-decoration:none;">
-            <span style="display:block;color:#F3F4F6 !important;font-weight:500;">Ph. D. Jorge Lucio SÃ¡nchez GalÃ¡n.</span>
+            <span style="display:block;color:#F3F4F6 !important;font-weight:500;">Ph. D. Jorge Lucio Sánchez Galán.</span>
           </a>
         </div>
       </div>
@@ -1091,13 +1101,13 @@
             headers: { "Content-Type": "text/plain;charset=utf-8" },
             body: JSON.stringify(record)
           });
-          showStatus("InscripciÃ³n recibida. Te enviaremos la confirmaciÃ³n y la informaciÃ³n de acceso.");
+          showStatus("Inscripción recibida. Te enviaremos la confirmación y la información de acceso.");
           form.reset();
           form.classList.add("is-hidden");
           thankYouPanel.classList.add("is-visible");
           thankYouPanel.scrollIntoView({ behavior: "smooth", block: "center" });
         } catch {
-          showStatus("No se ha podido enviar la inscripciÃ³n. IntÃ©ntalo de nuevo o contacta con la organizaciÃ³n.");
+          showStatus("No se ha podido enviar la inscripción. Inténtalo de nuevo o contacta con la organización.");
         }
       } else {
         showStatus("Formulario preparado. Falta conectar el destino privado de inscripciones antes de publicar la landing.");
@@ -1108,15 +1118,22 @@
     printThankYou.addEventListener("click", () => {
       const printWindow = window.open("", "_blank", "noopener,noreferrer,width=1080,height=1400");
       if (!printWindow) {
-        window.print();
+        showStatus("Permite ventanas emergentes para imprimir solo el pase de entrada.");
         return;
       }
-      printWindow.document.write(`<!doctype html><html><head><title>Seminario KAI ROI - Pase de entrada</title><style>@page{margin:0;}html,body{margin:0;background:#000;}img{display:block;width:100%;height:auto;}</style></head><body><img src="${thankYouImage.src}" alt=""></body></html>`);
+      const imageSrc = thankYouImage.currentSrc || thankYouImage.src;
+      printWindow.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Seminario KAI ROI - Pase de entrada</title><style>@page{margin:0;}html,body{margin:0;background:#000;}body{display:flex;align-items:flex-start;justify-content:center;}img{display:block;width:100%;max-width:980px;height:auto;}</style></head><body><img id="print-pass" src="${imageSrc}" alt="Pase de entrada Seminario KAI ROI"></body></html>`);
       printWindow.document.close();
-      printWindow.addEventListener("load", () => {
+      const printImage = printWindow.document.querySelector("#print-pass");
+      const runPrint = () => {
         printWindow.focus();
-        printWindow.print();
-      });
+        setTimeout(() => printWindow.print(), 120);
+      };
+      if (printImage.complete) {
+        runPrint();
+      } else {
+        printImage.addEventListener("load", runPrint, { once: true });
+      }
     });
   </script>
 </body>
