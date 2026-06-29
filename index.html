@@ -466,7 +466,7 @@
       pointer-events: none;
     }
 
-    .docroi-print-button {
+    .docroi-share-button {
       margin-top: 14px;
       background: transparent;
       border-color: rgba(255,255,255,.72);
@@ -936,7 +936,7 @@
                 <span class="docroi-gift-hotspot" aria-hidden="true">Recoger regalo en el Botiquin Doc ROI</span>
               </a>
             </div>
-            <button class="docroi-button docroi-print-button" type="button" id="print-thank-you">Imprimir</button>
+            <button class="docroi-button docroi-share-button" type="button" id="share-seminar">Compartir enlace</button>
           </div>
         </div>
       </section>
@@ -1068,8 +1068,8 @@
     const form = document.querySelector("#inscripcion");
     const statusBox = document.querySelector("#form-status");
     const thankYouPanel = document.querySelector("#thank-you-panel");
-    const thankYouImage = document.querySelector("#thank-you-image");
-    const printThankYou = document.querySelector("#print-thank-you");
+    const shareSeminar = document.querySelector("#share-seminar");
+    const SEMINAR_URL = "https://nebrija-seminario-ecuacion-kai.vercel.app/";
 
     const showStatus = (message) => {
       statusBox.textContent = message;
@@ -1115,24 +1115,27 @@
 
     });
 
-    printThankYou.addEventListener("click", () => {
-      const printWindow = window.open("", "_blank", "noopener,noreferrer,width=1080,height=1400");
-      if (!printWindow) {
-        showStatus("Permite ventanas emergentes para imprimir solo el pase de entrada.");
-        return;
-      }
-      const imageSrc = thankYouImage.currentSrc || thankYouImage.src;
-      printWindow.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>Seminario KAI ROI - Pase de entrada</title><style>@page{margin:0;}html,body{margin:0;background:#000;}body{display:flex;align-items:flex-start;justify-content:center;}img{display:block;width:100%;max-width:980px;height:auto;}</style></head><body><img id="print-pass" src="${imageSrc}" alt="Pase de entrada Seminario KAI ROI"></body></html>`);
-      printWindow.document.close();
-      const printImage = printWindow.document.querySelector("#print-pass");
-      const runPrint = () => {
-        printWindow.focus();
-        setTimeout(() => printWindow.print(), 120);
+    shareSeminar.addEventListener("click", async () => {
+      const shareData = {
+        title: "Seminario KAI ROI en Universidad Nebrija",
+        text: "Reserva plaza para el Seminario KAI ROI en Universidad Nebrija.",
+        url: SEMINAR_URL
       };
-      if (printImage.complete) {
-        runPrint();
-      } else {
-        printImage.addEventListener("load", runPrint, { once: true });
+
+      if (navigator.share) {
+        try {
+          await navigator.share(shareData);
+          return;
+        } catch {
+          // Si se cancela compartir, dejamos la página tal cual y ofrecemos copia.
+        }
+      }
+
+      try {
+        await navigator.clipboard.writeText(SEMINAR_URL);
+        showStatus("Enlace copiado para compartir la inscripción.");
+      } catch {
+        showStatus(`Comparte este enlace: ${SEMINAR_URL}`);
       }
     });
   </script>
