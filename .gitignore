@@ -1,0 +1,8 @@
+.agents/
+.codex/
+.git/
+.repo.git/
+node_modules/
+work/
+assets/*.b64
+assets/*.pdf
