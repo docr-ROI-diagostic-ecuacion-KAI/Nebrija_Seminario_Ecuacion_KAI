@@ -1070,6 +1070,7 @@
     const thankYouPanel = document.querySelector("#thank-you-panel");
     const shareSeminar = document.querySelector("#share-seminar");
     const SEMINAR_URL = "https://nebrija-seminario-ecuacion-kai.vercel.app/";
+    const POST_TARGET_NAME = "docroi-registration-target";
 
     const showStatus = (message) => {
       statusBox.textContent = message;
@@ -1093,32 +1094,47 @@
         user_agent: navigator.userAgent
       };
 
-      if (REGISTRATION_ENDPOINT) {
-        try {
-          const payload = new URLSearchParams();
-          Object.entries(record).forEach(([key, value]) => {
-            payload.append(key, value || "");
-          });
-
-          await fetch(REGISTRATION_ENDPOINT, {
-            method: "POST",
-            mode: "no-cors",
-            headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
-            body: payload.toString()
-          });
-          showStatus("Inscripción recibida. Te enviaremos la confirmación y la información de acceso.");
-          form.reset();
-          form.classList.add("is-hidden");
-          thankYouPanel.classList.add("is-visible");
-          thankYouPanel.scrollIntoView({ behavior: "smooth", block: "center" });
-        } catch {
-          showStatus("No se ha podido enviar la inscripción. Inténtalo de nuevo o contacta con la organización.");
-        }
-      } else {
+      if (!REGISTRATION_ENDPOINT) {
         showStatus("Formulario preparado. Falta conectar el destino privado de inscripciones antes de publicar la landing.");
+        return;
       }
 
+      postRegistration(record);
+      showStatus("Inscripción recibida. Te enviaremos la confirmación y la información de acceso.");
+      form.reset();
+      form.classList.add("is-hidden");
+      thankYouPanel.classList.add("is-visible");
+      thankYouPanel.scrollIntoView({ behavior: "smooth", block: "center" });
     });
+
+    function postRegistration(record) {
+      let targetFrame = document.querySelector(`iframe[name="${POST_TARGET_NAME}"]`);
+      if (!targetFrame) {
+        targetFrame = document.createElement("iframe");
+        targetFrame.name = POST_TARGET_NAME;
+        targetFrame.hidden = true;
+        targetFrame.style.display = "none";
+        document.body.appendChild(targetFrame);
+      }
+
+      const postForm = document.createElement("form");
+      postForm.method = "POST";
+      postForm.action = REGISTRATION_ENDPOINT;
+      postForm.target = POST_TARGET_NAME;
+      postForm.style.display = "none";
+
+      Object.entries(record).forEach(([key, value]) => {
+        const input = document.createElement("input");
+        input.type = "hidden";
+        input.name = key;
+        input.value = value || "";
+        postForm.appendChild(input);
+      });
+
+      document.body.appendChild(postForm);
+      postForm.submit();
+      window.setTimeout(() => postForm.remove(), 4000);
+    }
 
     shareSeminar.addEventListener("click", async () => {
       const shareData = {
