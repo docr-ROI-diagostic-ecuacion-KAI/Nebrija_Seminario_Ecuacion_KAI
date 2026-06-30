@@ -1064,13 +1064,12 @@
       });
     });
 
-    const REGISTRATION_ENDPOINT = "https://script.google.com/macros/s/AKfycbzUjyqZ4BYF7_TKMmU2LlCQ86Y-6D7ua5dvlVJV6WrkEM3OuUBXoFS30ge8EpG2aGbbXQ/exec";
+    const REGISTRATION_ENDPOINT = "/api/register";
     const form = document.querySelector("#inscripcion");
     const statusBox = document.querySelector("#form-status");
     const thankYouPanel = document.querySelector("#thank-you-panel");
     const shareSeminar = document.querySelector("#share-seminar");
     const SEMINAR_URL = "https://nebrija-seminario-ecuacion-kai.vercel.app/";
-    const POST_TARGET_NAME = "docroi-registration-target";
 
     const showStatus = (message) => {
       statusBox.textContent = message;
@@ -1099,42 +1098,26 @@
         return;
       }
 
-      postRegistration(record);
-      showStatus("Inscripción recibida. Te enviaremos la confirmación y la información de acceso.");
-      form.reset();
-      form.classList.add("is-hidden");
-      thankYouPanel.classList.add("is-visible");
-      thankYouPanel.scrollIntoView({ behavior: "smooth", block: "center" });
-    });
+      try {
+        const response = await fetch(REGISTRATION_ENDPOINT, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(record)
+        });
 
-    function postRegistration(record) {
-      let targetFrame = document.querySelector(`iframe[name="${POST_TARGET_NAME}"]`);
-      if (!targetFrame) {
-        targetFrame = document.createElement("iframe");
-        targetFrame.name = POST_TARGET_NAME;
-        targetFrame.hidden = true;
-        targetFrame.style.display = "none";
-        document.body.appendChild(targetFrame);
+        if (!response.ok) {
+          throw new Error("Registration request failed");
+        }
+
+        showStatus("Inscripción recibida. Te enviaremos la confirmación y la información de acceso.");
+        form.reset();
+        form.classList.add("is-hidden");
+        thankYouPanel.classList.add("is-visible");
+        thankYouPanel.scrollIntoView({ behavior: "smooth", block: "center" });
+      } catch {
+        showStatus("No se ha podido enviar la inscripción. Inténtalo de nuevo o contacta con la organización.");
       }
-
-      const postForm = document.createElement("form");
-      postForm.method = "POST";
-      postForm.action = REGISTRATION_ENDPOINT;
-      postForm.target = POST_TARGET_NAME;
-      postForm.style.display = "none";
-
-      Object.entries(record).forEach(([key, value]) => {
-        const input = document.createElement("input");
-        input.type = "hidden";
-        input.name = key;
-        input.value = value || "";
-        postForm.appendChild(input);
-      });
-
-      document.body.appendChild(postForm);
-      postForm.submit();
-      window.setTimeout(() => postForm.remove(), 4000);
-    }
+    });
 
     shareSeminar.addEventListener("click", async () => {
       const shareData = {
