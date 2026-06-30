@@ -29,7 +29,7 @@ module.exports = async function handler(req, res) {
 
     const scriptResponse = await postUrlEncoded(APPS_SCRIPT_URL, payload.toString());
 
-    if (scriptResponse.statusCode < 200 || scriptResponse.statusCode >= 300) {
+    if (scriptResponse.statusCode < 200 || scriptResponse.statusCode >= 400) {
       return res.status(502).json({
         ok: false,
         error: "Apps Script error",
@@ -44,7 +44,7 @@ module.exports = async function handler(req, res) {
   }
 };
 
-function postUrlEncoded(url, body, redirectCount = 0) {
+function postUrlEncoded(url, body) {
   return new Promise((resolve, reject) => {
     const parsedUrl = new URL(url);
     const request = https.request({
@@ -60,18 +60,6 @@ function postUrlEncoded(url, body, redirectCount = 0) {
       response.on("data", (chunk) => chunks.push(chunk));
       response.on("end", async () => {
         const responseBody = Buffer.concat(chunks).toString("utf8");
-        const location = response.headers.location;
-
-        if (location && response.statusCode >= 300 && response.statusCode < 400 && redirectCount < 5) {
-          try {
-            const nextUrl = new URL(location, url).toString();
-            resolve(await postUrlEncoded(nextUrl, body, redirectCount + 1));
-          } catch (error) {
-            reject(error);
-          }
-          return;
-        }
-
         resolve({
           statusCode: response.statusCode || 0,
           body: responseBody
